@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- Profile Image -->
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/chat_user_circle_bg">
+        <TextView
+            android:id="@+id/chat_user_shortname"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+        <ImageView
+            android:id="@+id/send_chat_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|end"
+            android:padding="3dp"
+            android:background="@drawable/chat_type_circle_bg"
+            android:src="@drawable/send_message_icon">
+
+        </ImageView>
+    </FrameLayout>
+
+
+    <!-- Name and Last Message -->
+    <LinearLayout
+        android:id="@+id/chat_user_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/chat_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/chat_last_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <!-- Last Message Type -->
+    <TextView
+        android:id="@+id/chat_last_message_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:visibility="visible"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/circle_button_background"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center" />
+</LinearLayout>

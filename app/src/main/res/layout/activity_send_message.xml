@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".SendMessageActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!-- Title -->
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Message"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Recipient Input -->
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/countryCodePicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+                    <EditText
+                        android:id="@+id/recipientField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Recipient"
+                        android:inputType="textEmailAddress"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/countryCodePicker"
+                        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+                </LinearLayout>
+                <!-- Message Input -->
+
+                <TextView
+                    android:id="@+id/tvTemplates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Templates">
+
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/templateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+                <jp.wasabeef.richeditor.RichEditor
+                    android:id="@+id/messageField"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toTopOf="@id/scheduleCheckbox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipientField" />
+
+
+
+                <!-- Schedule Checkbox -->
+                <CheckBox
+                    android:id="@+id/scheduleCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/messageField" />
+
+                <Button
+                    android:id="@+id/selectImagesButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attachments"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/messageEditor" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingTop="10dp"
+                    android:scrollbars="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/selectImagesButton" />
+
+                <!-- Date & Time Picker Section -->
+                <LinearLayout
+                    android:id="@+id/dateTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scheduleCheckbox">
+
+                    <TextView
+                        android:id="@+id/selectedDateTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date and Time"
+                        android:textStyle="italic" />
+
+                    <Button
+                        android:id="@+id/selectDateTimeButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date &amp; Time" />
+                </LinearLayout>
+
+                <!-- Image Selection Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/dateTimeLayout">
+
+                    <Button
+                        android:id="@+id/selectCameraImageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Image from Camera" />
+
+                    <Button
+                        android:id="@+id/selectGalleryImageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Image from Gallery" />
+                </LinearLayout>
+
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:id="@+id/buttonContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scheduleCheckbox">
+
+                    <Button
+                        android:id="@+id/draftButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Draft"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/sendButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Send"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonContainer">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/suggested_user_list_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:scrollbars="vertical" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="false"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateTint="@android:color/holo_blue_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+</LinearLayout>
+

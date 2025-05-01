@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/dialButtonColor" />
+    <!-- Use a large radius to make the corners rounded, creating a circle -->
+    <corners android:radius="100dp" />
+</shape>

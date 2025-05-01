@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".EmailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/recipientField" />
+
+        <!-- Recipient Field -->
+        <EditText
+            android:id="@+id/recipientField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Recipient:*"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Subject Field -->
+        <EditText
+            android:id="@+id/subjectField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Subject:*"
+            app:layout_constraintTop_toBottomOf="@id/recipientField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTemplates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Templates"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/messageEditor"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </TextView>
+        <Spinner
+            android:id="@+id/templateSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTemplates"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <!-- Message Editor -->
+        <jp.wasabeef.richeditor.RichEditor
+            android:id="@+id/messageEditor"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/subjectField"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/selectImagesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attachments"
+            app:layout_constraintTop_toBottomOf="@id/templateSpinner"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingTop="10dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/selectImagesButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            android:indeterminateTint="@android:color/holo_blue_dark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

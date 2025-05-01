@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "334486751079",
+    "project_id": "pst-app-4d66c",
+    "storage_bucket": "pst-app-4d66c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334486751079:android:7245d7f7ccbaadd74291c2",
+        "android_client_info": {
+          "package_name": "com.mind2web.vb360"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFAmKR7Y1ePuRLdP8RVYSS4Ig8Bo46c4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

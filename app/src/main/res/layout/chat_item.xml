@@ -1,0 +1,174 @@
+<!-- res/layout/chat_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/fm_recieve_chat_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="3dp"
+        android:background="@drawable/chat_user_circle_bg">
+
+        <TextView
+            android:id="@+id/recieve_chat_user_shortname"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/recieve_chat_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/chat_type_circle_bg"
+            android:padding="3dp"
+            android:src="@drawable/send_message_icon">
+
+        </ImageView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/chat_message_rounded_background"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/messageFromTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:background="@drawable/chat_from_to_background_round"
+
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+            <jp.wasabeef.richeditor.RichEditor
+                android:id="@+id/messageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E5EFFC"
+
+                android:padding="8dp" />
+
+            <LinearLayout
+                android:id="@+id/audio_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="4dp"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/audio_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textColor="@android:color/black"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_vertical" />
+                <ImageButton
+                    android:id="@+id/play_audio"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@android:drawable/ic_media_play"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/pause_audio"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@android:drawable/ic_media_pause"
+                    android:visibility="gone" />
+
+                <SeekBar
+                    android:id="@+id/audio_seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAttachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attachments"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/attachmentRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:scrollbars="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/selectImagesButton" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/messageTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fm_send_chat_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="3dp"
+        android:background="@drawable/chat_user_circle_bg">
+
+        <TextView
+            android:id="@+id/send_chat_user_shortname"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/send_chat_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/chat_type_circle_bg"
+            android:padding="3dp"
+            android:src="@drawable/send_message_icon">
+
+        </ImageView>
+    </FrameLayout>
+</LinearLayout>
